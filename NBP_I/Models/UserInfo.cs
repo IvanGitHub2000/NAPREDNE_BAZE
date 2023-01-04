@@ -7,6 +7,6 @@ namespace NBP_I.Models
 {
     public class UserInfo
     {
-        public record UserInfo(int Id, string Username);
+        public record UserInfo1(int Id, string Username);
     }
 }

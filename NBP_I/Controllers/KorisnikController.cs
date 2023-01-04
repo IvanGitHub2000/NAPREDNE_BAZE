@@ -32,17 +32,24 @@ namespace NBP_I.Controllers
             //var session = driver.AsyncSession(); // mozes i ovako
 
             // Create a query to create a new User node with the specified name, password, and email properties
-            string createUserQuery = "CREATE (u:User {username: $username, password: $password, email: $email})";
+            //string createUserQuery = "CREATE (u:User {username: $username, password: $password, email: $email})";
 
-            // Execute the query, passing in the parameter values
-            await session.RunAsync(createUserQuery, new { username = username, password = password, email = email });
-
+            //// Execute the query, passing in the parameter values
+            //var result=await session.RunAsync(createUserQuery, new { username = username, password = password, email = email });
+            var result = await session.RunAsync($"CREATE (user:User {{username: '{username}', password:  '{password}', email:  '{email}' }}) return id(user)");
+            var userId = await result.SingleAsync(record => record["id(user)"].As<int>());
+            if (userId != -1)
+            {
+                HttpContext.Session.SetString(SessionKeys.Username, username);
+                HttpContext.Session.SetInt32(SessionKeys.UserId, userId);
+                //return RedirectToAction("Index", "Home");
+            }
             // Close the session and driver
             await session.CloseAsync();
             //driver.Dispose();
 
             // Return a value indicating that the operation was successful
-            return Ok();
+            return Ok("Korisnik uspesno registrovan!");
         }
         [HttpPost]
         [Route("Login/{username}/{password}")]
@@ -63,18 +70,19 @@ namespace NBP_I.Controllers
 
             var userId = res[0]["id(u)"].As<int>();
 
-            //if (userId != -1)//ovde mu dozvoli da moz da radi sta hoce
-            //{
-            //    HttpContext.Session.SetString(SessionKeys.Username, username);//ovde problem sa sesijom kaze nije nastelovana
-            //    HttpContext.Session.SetInt32(SessionKeys.UserId, userId);
-            //    return RedirectToAction("Index", "Home");//ovde kao se redirektuje dobije dozvolu
-            //}
+            if (userId != -1)//ovde mu dozvoli da moz da radi sta hoce
+            {
+                HttpContext.Session.SetString(SessionKeys.Username, username);//ovde problem sa sesijom kaze nije nastelovana
+                HttpContext.Session.SetInt32(SessionKeys.UserId, userId);
+              //  return RedirectToAction("Index", "Home");//ovde kao se redirektuje dobije dozvolu
+            }
 
             // Return a value indicating that the operation was successful
             await session.CloseAsync();
-            if(userId!=-1)
-                return Ok("Korisnik je uspesno logovan!");
-            return Ok("Korisnik nije ulogovan!");
+            //if(userId!=-1)
+            //    return Ok("Korisnik je uspesno logovan!");
+            //return Ok("Korisnik nije ulogovan!");
+            return Ok("Korisnik je uspesno logovan!");
             /*chatgpt
                 IDriver driver = GraphDatabase.Driver("bolt://localhost:7687", AuthTokens.Basic("neo4j", "password"));
 

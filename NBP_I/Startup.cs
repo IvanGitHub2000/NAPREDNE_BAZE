@@ -64,7 +64,9 @@ namespace NBP_I
             app.UseRouting();
 
             app.UseAuthorization();
-
+            app.UseSession();
+           // app.UseMvc();
+            app.UseHttpsRedirection();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
