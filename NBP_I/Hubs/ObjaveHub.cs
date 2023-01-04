@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace NBP_I.Models
+namespace NBP_I.Hubs
 {
-    public record UserInfo(int Id, string Username);
-}
+    public class ObjaveHub : BaseHub
+    {
 
+    }
+}

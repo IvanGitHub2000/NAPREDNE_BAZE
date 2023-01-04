@@ -34,3 +34,39 @@ C:\Users\Ivan\source\repos\NBP_I\NBP_I\obj\Debug\net5.0\NBP_I.genruntimeconfig.c
 C:\Users\Ivan\source\repos\NBP_I\NBP_I\bin\Debug\net5.0\Pipelines.Sockets.Unofficial.dll
 C:\Users\Ivan\source\repos\NBP_I\NBP_I\bin\Debug\net5.0\StackExchange.Redis.dll
 C:\Users\Ivan\source\repos\NBP_I\NBP_I\bin\Debug\net5.0\System.IO.Pipelines.dll
+D:\Fakultet i ucenje\IV godina\Predmeti\Napredne baze podataka\[NBP] Projekat\NBP_I\obj\Debug\net5.0\NBP_I.csproj.AssemblyReference.cache
+D:\Fakultet i ucenje\IV godina\Predmeti\Napredne baze podataka\[NBP] Projekat\NBP_I\obj\Debug\net5.0\NBP_I.GeneratedMSBuildEditorConfig.editorconfig
+D:\Fakultet i ucenje\IV godina\Predmeti\Napredne baze podataka\[NBP] Projekat\NBP_I\obj\Debug\net5.0\NBP_I.AssemblyInfoInputs.cache
+D:\Fakultet i ucenje\IV godina\Predmeti\Napredne baze podataka\[NBP] Projekat\NBP_I\obj\Debug\net5.0\NBP_I.AssemblyInfo.cs
+D:\Fakultet i ucenje\IV godina\Predmeti\Napredne baze podataka\[NBP] Projekat\NBP_I\obj\Debug\net5.0\NBP_I.csproj.CoreCompileInputs.cache
+D:\Fakultet i ucenje\IV godina\Predmeti\Napredne baze podataka\[NBP] Projekat\NBP_I\obj\Debug\net5.0\NBP_I.MvcApplicationPartsAssemblyInfo.cs
+D:\Fakultet i ucenje\IV godina\Predmeti\Napredne baze podataka\[NBP] Projekat\NBP_I\obj\Debug\net5.0\NBP_I.MvcApplicationPartsAssemblyInfo.cache
+D:\Fakultet i ucenje\IV godina\Predmeti\Napredne baze podataka\[NBP] Projekat\NBP_I\obj\Debug\net5.0\NBP_I.dll
+D:\Fakultet i ucenje\IV godina\Predmeti\Napredne baze podataka\[NBP] Projekat\NBP_I\obj\Debug\net5.0\ref\NBP_I.dll
+D:\Fakultet i ucenje\IV godina\Predmeti\Napredne baze podataka\[NBP] Projekat\NBP_I\obj\Debug\net5.0\NBP_I.pdb
+D:\Fakultet i ucenje\IV godina\Predmeti\Napredne baze podataka\[NBP] Projekat\NBP_I\bin\Debug\net5.0\appsettings.Development.json
+D:\Fakultet i ucenje\IV godina\Predmeti\Napredne baze podataka\[NBP] Projekat\NBP_I\bin\Debug\net5.0\appsettings.json
+D:\Fakultet i ucenje\IV godina\Predmeti\Napredne baze podataka\[NBP] Projekat\NBP_I\bin\Debug\net5.0\NBP_I.StaticWebAssets.xml
+D:\Fakultet i ucenje\IV godina\Predmeti\Napredne baze podataka\[NBP] Projekat\NBP_I\bin\Debug\net5.0\NBP_I.exe
+D:\Fakultet i ucenje\IV godina\Predmeti\Napredne baze podataka\[NBP] Projekat\NBP_I\bin\Debug\net5.0\NBP_I.deps.json
+D:\Fakultet i ucenje\IV godina\Predmeti\Napredne baze podataka\[NBP] Projekat\NBP_I\bin\Debug\net5.0\NBP_I.runtimeconfig.json
+D:\Fakultet i ucenje\IV godina\Predmeti\Napredne baze podataka\[NBP] Projekat\NBP_I\bin\Debug\net5.0\NBP_I.runtimeconfig.dev.json
+D:\Fakultet i ucenje\IV godina\Predmeti\Napredne baze podataka\[NBP] Projekat\NBP_I\bin\Debug\net5.0\NBP_I.dll
+D:\Fakultet i ucenje\IV godina\Predmeti\Napredne baze podataka\[NBP] Projekat\NBP_I\bin\Debug\net5.0\ref\NBP_I.dll
+D:\Fakultet i ucenje\IV godina\Predmeti\Napredne baze podataka\[NBP] Projekat\NBP_I\bin\Debug\net5.0\NBP_I.pdb
+D:\Fakultet i ucenje\IV godina\Predmeti\Napredne baze podataka\[NBP] Projekat\NBP_I\bin\Debug\net5.0\MessagePack.dll
+D:\Fakultet i ucenje\IV godina\Predmeti\Napredne baze podataka\[NBP] Projekat\NBP_I\bin\Debug\net5.0\Microsoft.AspNetCore.SignalR.Redis.dll
+D:\Fakultet i ucenje\IV godina\Predmeti\Napredne baze podataka\[NBP] Projekat\NBP_I\bin\Debug\net5.0\Microsoft.Bcl.AsyncInterfaces.dll
+D:\Fakultet i ucenje\IV godina\Predmeti\Napredne baze podataka\[NBP] Projekat\NBP_I\bin\Debug\net5.0\Microsoft.OpenApi.dll
+D:\Fakultet i ucenje\IV godina\Predmeti\Napredne baze podataka\[NBP] Projekat\NBP_I\bin\Debug\net5.0\Neo4j.Driver.dll
+D:\Fakultet i ucenje\IV godina\Predmeti\Napredne baze podataka\[NBP] Projekat\NBP_I\bin\Debug\net5.0\Neo4jClient.dll
+D:\Fakultet i ucenje\IV godina\Predmeti\Napredne baze podataka\[NBP] Projekat\NBP_I\bin\Debug\net5.0\Newtonsoft.Json.dll
+D:\Fakultet i ucenje\IV godina\Predmeti\Napredne baze podataka\[NBP] Projekat\NBP_I\bin\Debug\net5.0\StackExchange.Redis.StrongName.dll
+D:\Fakultet i ucenje\IV godina\Predmeti\Napredne baze podataka\[NBP] Projekat\NBP_I\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\Fakultet i ucenje\IV godina\Predmeti\Napredne baze podataka\[NBP] Projekat\NBP_I\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\Fakultet i ucenje\IV godina\Predmeti\Napredne baze podataka\[NBP] Projekat\NBP_I\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\Fakultet i ucenje\IV godina\Predmeti\Napredne baze podataka\[NBP] Projekat\NBP_I\obj\Debug\net5.0\scopedcss\bundle\NBP_I.styles.css
+D:\Fakultet i ucenje\IV godina\Predmeti\Napredne baze podataka\[NBP] Projekat\NBP_I\obj\Debug\net5.0\staticwebassets\NBP_I.StaticWebAssets.Manifest.cache
+D:\Fakultet i ucenje\IV godina\Predmeti\Napredne baze podataka\[NBP] Projekat\NBP_I\obj\Debug\net5.0\NBP_I.RazorTargetAssemblyInfo.cache
+D:\Fakultet i ucenje\IV godina\Predmeti\Napredne baze podataka\[NBP] Projekat\NBP_I\obj\Debug\net5.0\NBP_I.csproj.CopyComplete
+D:\Fakultet i ucenje\IV godina\Predmeti\Napredne baze podataka\[NBP] Projekat\NBP_I\obj\Debug\net5.0\NBP_I.genruntimeconfig.cache

@@ -19,7 +19,7 @@ namespace NBP_I
 {
     public class Startup
     {
-        IDriver driver;
+        public static IDriver driver;
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -36,17 +36,15 @@ namespace NBP_I
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "NBP_I", Version = "v1" });
             });
-            //var client = new BoltGraphClient(new Uri("bolt://localhost:7687"), "neo4j", "17779");
-            //client.ConnectAsync();
-            //services.AddSingleton<IGraphClient>(client);
+
             services.AddControllersWithViews();
             services.AddSession(options => options.IdleTimeout = TimeSpan.FromDays(1));
+            // Neo4j
             driver = GraphDatabase.Driver("bolt://localhost:7687", AuthTokens.Basic("neo4j", "17779"));
             services.AddSingleton(driver);
-
-            var redis = ConnectionMultiplexer.Connect("localhost:6379");
-            var db = redis.GetDatabase();
-            services.AddScoped(x => redis.GetDatabase());
+            // Redis
+            services.AddSignalR().AddRedis("localhost:6379");
+            services.AddSingleton<IConnectionMultiplexer>(ConnectionMultiplexer.Connect("localhost:6379,allowAdmin=true"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -64,12 +62,19 @@ namespace NBP_I
             app.UseRouting();
 
             app.UseAuthorization();
+
             app.UseSession();
-           // app.UseMvc();
+
             app.UseHttpsRedirection();
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+
+                // Ovde moramo da dodamo hubove kasnije
+
+                //endpoints.MapHub<ChatHub>("/hub/Chat");
+                //endpoints.MapHub<AdsHub>("/hub/Ads");
             });
         }
     }

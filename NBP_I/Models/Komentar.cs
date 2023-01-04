@@ -11,7 +11,7 @@ namespace NBP_I.Models
         public Korisnik Kreator { get; set; }
         public DateTime DatumKreiranja { get; set; }
 
-        public Post Post { get; set; }
+        public Objava Post { get; set; }
 
         public List<Korisnik> Likes { get; set; }
     }
