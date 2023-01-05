@@ -149,7 +149,7 @@ namespace NBP_I.Controllers
             {
                 _ = await session.RunAsync(@$"MATCH (k:Korisnik) 
                                     WHERE id(k)={userId}
-                                    SET k = {{ email: '{email}',fakultet: '{fakultet}', godinaStudija: '{godinaStudija}' ,korisinickoIme: '{username}', sifra: '{newPass}',  smer: '{smer}'}} ");
+                                    SET k = {{ email: '{email}',fakultet: '{fakultet}', godinaStudija: '{godinaStudija}' ,korisnickoIme: '{username}', sifra: '{newPass}',  smer: '{smer}'}} ");
             }
             finally
             {
@@ -216,7 +216,7 @@ namespace NBP_I.Controllers
                     session = _driver.AsyncSession();//ponovo se otvara asinhrona sesija
                     _ = await session.RunAsync(@$"MATCH(k1:Korisnik) WHERE id(k1)={userId} 
                                     MATCH (k2:Korisnik) WHERE id(k2)={uId} 
-                                    CREATE (k1)-[:PRATI]->(k2)");
+                                    CREATE (k1)-[:PRATI]->(k2)"); // AKO BUDE BILO VREMENA DA SE ISPITA DA LI POSTOJI KORISNIK KOG ZAPRACUJEMO
 
                     RedisManager<int>.Push($"korisnici:{uId}:pratioci", userId);
                 }
@@ -248,7 +248,7 @@ namespace NBP_I.Controllers
                 _ = await session.RunAsync(@$"MATCH (k1:Korisnik)-[r:PRATI]->(k2:Korisnik)
                                         WHERE id(k1) = {userId} AND id(k2) = {uId}
                                         DELETE r");//nalazi vezu PRATI izmedu trenutno logovanog i onog sa uId i brise vezu PRATI
-            }
+            }       // AKO BUDE BILO VREMENA DA SE ISPITA DA LI PRATIMO KORISNIKA KOG OTPRACUJEMO
             finally
             {
                 await session.CloseAsync();
