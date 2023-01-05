@@ -67,7 +67,7 @@ namespace NBP_I.Controllers
             var session = _driver.AsyncSession();
             try
             {
-                var result = await session.RunAsync($"CREATE (k:Korisnik {{email: '{email}', korisnickoIme: '{korisnickoIme}', sifra:  '{sifra}', fakultet: '{fakultet}', smer:  '{smer}', godinaStudija: {godinaStudija} }}) return id(k)");
+                var result = await session.RunAsync($"CREATE (k:Korisnik {{email: '{email}', korisnickoIme: '{korisnickoIme}', sifra:  '{sifra}', fakultet: '{fakultet}', smer:  '{smer}', godinaStudija: {godinaStudija} }}) return id(k)");///*,rejting:'{null}'*/ mozda mada vraca rejting 0 kad idem get metodu
                 var userId = await result.SingleAsync(record => record["id(k)"].As<int>());
                 if (userId != -1)
                 {
@@ -131,115 +131,132 @@ namespace NBP_I.Controllers
             return Ok("Uspesno ste se odjavili!");
         }
 
+        [HttpPut]
+        [Route("PromeniPodatke")]
+        public async Task<IActionResult> PromeniPodatke(string id, string username,string email, string godinaStudija, string smer, string fakultet, /*string password1,*/ string password, string repassword)
+        {
+            //var newPass = password1;//nisam najsigurniji poentu ovoga ali verovatn
+            var newPass = " ";
+            if (!string.IsNullOrEmpty(password) && password.CompareTo(repassword) == 0)
+                newPass = password;
+            else
+            {
+                return BadRequest("Sifre nisu iste!");
+            }
+            var userId = int.Parse(id);
+            IAsyncSession session = _driver.AsyncSession();
+            try
+            {
+                _ = await session.RunAsync(@$"MATCH (k:Korisnik) 
+                                    WHERE id(k)={userId}
+                                    SET k = {{ email: '{email}',fakultet: '{fakultet}', godinaStudija: '{godinaStudija}' ,korisinickoIme: '{username}', sifra: '{newPass}',  smer: '{smer}'}} ");
+            }
+            finally
+            {
+                await session.CloseAsync();
+            }
+
+            //return RedirectToAction("Profile", "Home");
+            return Ok();//radi funkcija lepo menja
+
+        }
+        [HttpGet]
+        [Route("PreuzmiPodatke")]
+        public async Task<IActionResult> PreuzmiPodatke()//kod djuke je u homecontroller Profile funkcija
+        {
+            if (!HttpContext.Session.IsLoggedIn())
+                return RedirectToAction("Login", "Home");
+
+            var userId = HttpContext.Session.GetUserId();
+            var session = _driver.AsyncSession();
+            try
+            {
+               
+                var result = await session.RunAsync($"MATCH (k:Korisnik) WHERE id(k) = {userId} RETURN k");
+                var user = (await result.SingleAsync())["k"].As<INode>();
+                string str_godinaStudija = user.Properties["godinaStudija"].ToString();
+                return Ok(new Korisnik//djuka ovde ime View(), umesto OK()
+                {
+                    ID = userId,
+                    KorisnickoIme = user.Properties["korisnickoIme"].ToString(),
+                    Sifra = user.Properties["sifra"].ToString(),
+                    Email = user.Properties["email"].ToString(),
+                    Fakultet = user.Properties["fakultet"].ToString(),
+                    Smer = user.Properties["smer"].ToString(),
+                  GodinaStudije= Int32.Parse(str_godinaStudija)
 
 
+                });
+            }
+            finally
+            {
+                await session.CloseAsync();
+            }
+        }
 
+        [HttpGet]
+        [Route("ZapratiKorisnika")]
+        public async Task<IActionResult> ZapratiKorisnika(int uId)
+        {
+            var userId = HttpContext.Session.GetUserId();
+            if (!HttpContext.Session.IsLoggedIn())
+                return RedirectToAction("Login", "Home");
 
+            IResultCursor result;
+            IAsyncSession session = _driver.AsyncSession();
+            try
+            {
+                result = await session.RunAsync(@$"MATCH (k1:Korisnik)-[r:PRATI]->(k2:Korisnik)
+                                        WHERE id(k1) = {userId} AND id(k2) = {uId}
+                                        RETURN k1, r, k2");//k1 zapracuje k2 i vraca k1 k2 i vezu izmedju(follow),provera da li ne prati vec tog korisnika
+                var checkIfFollow = await result.ToListAsync();
 
+                if (checkIfFollow.Count == 0)//da ga vec ne pratis
+                {
+                    session = _driver.AsyncSession();//ponovo se otvara asinhrona sesija
+                    _ = await session.RunAsync(@$"MATCH(k1:Korisnik) WHERE id(k1)={userId} 
+                                    MATCH (k2:Korisnik) WHERE id(k2)={uId} 
+                                    CREATE (k1)-[:PRATI]->(k2)");
 
+                    RedisManager<int>.Push($"korisnici:{uId}:pratioci", userId);
+                }
+                else
+                {
+                    return BadRequest("Vec pratite ovog korisnika!!!");
+                }
+            }
+            finally
+            {
+                await session.CloseAsync();
+            }
 
+            //return RedirectToAction("Index", "Home");
+            return Ok("Napravljena nova veza PRATI od korisnika sa ID-jem: " + userId + " ka korisniku sa ID-jem:" + uId);
+        }
 
+        [HttpGet]//POST i think or PUT smth like that
+        [Route("OtpratiKorisnika")]
+        public async Task<IActionResult> OtpratiKorisnika(int uId)
+        {
+            if (!HttpContext.Session.IsLoggedIn())
+                return RedirectToAction("Login", "Home");
 
+            var userId = HttpContext.Session.GetUserId();
+            IAsyncSession session = _driver.AsyncSession();
+            try
+            {
+                _ = await session.RunAsync(@$"MATCH (k1:Korisnik)-[r:PRATI]->(k2:Korisnik)
+                                        WHERE id(k1) = {userId} AND id(k2) = {uId}
+                                        DELETE r");//nalazi vezu PRATI izmedu trenutno logovanog i onog sa uId i brise vezu PRATI
+            }
+            finally
+            {
+                await session.CloseAsync();
+            }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-        //[HttpPost]
-        //[Route("Register/{username}/{email}/{password}")]
-        //public async Task<ActionResult> Register(string username, string email, string password)
-        //{
-        //    // Connect to the Neo4j database
-
-        //    using IAsyncSession session = driver.AsyncSession(o => o.WithDefaultAccessMode(AccessMode.Write));
-        //    //var session = driver.AsyncSession(); // mozes i ovako
-
-        //    // Create a query to create a new User node with the specified name, password, and email properties
-        //    //string createUserQuery = "CREATE (u:User {username: $username, password: $password, email: $email})";
-
-        //    //// Execute the query, passing in the parameter values
-        //    //var result=await session.RunAsync(createUserQuery, new { username = username, password = password, email = email });
-        //    var result = await session.RunAsync($"CREATE (user:User {{username: '{username}', password:  '{password}', email:  '{email}' }}) return id(user)");
-        //    var userId = await result.SingleAsync(record => record["id(user)"].As<int>());
-        //    if (userId != -1)
-        //    {
-        //        HttpContext.Session.SetString(SessionKeys.Username, username);
-        //        HttpContext.Session.SetInt32(SessionKeys.UserId, userId);
-        //        //return RedirectToAction("Index", "Home");
-        //    }
-        //    // Close the session and driver
-        //    await session.CloseAsync();
-        //    //driver.Dispose();
-
-        //    // Return a value indicating that the operation was successful
-        //    return Ok("Korisnik uspesno registrovan!");
-        //}
-        //[HttpPost]
-        //[Route("Login/{username}/{password}")]
-        //public async Task<ActionResult> Login(string username,  string password)
-        //{
-        //    // Connect to the Neo4j database
-
-        //    using IAsyncSession session = driver.AsyncSession(o => o.WithDefaultAccessMode(AccessMode.Write));
-
-        //    //var session = driver.AsyncSession();
-
-
-        //        var result = await session.RunAsync($"MATCH (u:User {{username: '{username}', password: '{password}'}}) RETURN id(u)");
-
-        //        var res = await result.ToListAsync();
-        //    //if (res.Count == 0)
-        //    //    return RedirectToAction("Login", "Home");
-
-        //    var userId = res[0]["id(u)"].As<int>();
-
-        //    if (userId != -1)//ovde mu dozvoli da moz da radi sta hoce
-        //    {
-        //        HttpContext.Session.SetString(SessionKeys.Username, username);//ovde problem sa sesijom kaze nije nastelovana
-        //        HttpContext.Session.SetInt32(SessionKeys.UserId, userId);
-        //      //  return RedirectToAction("Index", "Home");//ovde kao se redirektuje dobije dozvolu
-        //    }
-
-        //    // Return a value indicating that the operation was successful
-        //    await session.CloseAsync();
-        //    //if(userId!=-1)
-        //    //    return Ok("Korisnik je uspesno logovan!");
-        //    //return Ok("Korisnik nije ulogovan!");
-        //    return Ok("Korisnik je uspesno logovan!");
-        /*chatgpt
-            IDriver driver = GraphDatabase.Driver("bolt://localhost:7687", AuthTokens.Basic("neo4j", "password"));
-
-using IAsyncSession session = driver.AsyncSession(o => o.WithDefaultAccessMode(AccessMode.Write));
-
-// Create a query to find the User node with the specified username and password
-string findUserQuery = "MATCH (u:User) WHERE u.username = $username AND u.password = $password RETURN u";
-
-// Execute the query, passing in the parameter values
-IResultCursor cursor = await session.RunAsync(findUserQuery, new { username = username, password = password });
-
-// Check if a User node was found
-if (cursor.SingleAsync().Result == null)
-{
-    // No User node was found, so return an error
-    return StatusCode(StatusCodes.Status401Unauthorized);
-}
-else
-{
-    // A User node was found, so return a success result
-    return Ok();
-}
-
-// Close the session and driver
-await session.CloseAsync();*/
+            //return RedirectToAction("Index", "Home");
+            return Ok("Veza PRATI gde korisnik sa ID-jem:" + userId + " prati korisnika sa ID-jem:" + uId + " je uspesno obrisana!!!");
+        }
 
     }
 
