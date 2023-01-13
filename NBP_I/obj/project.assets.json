@@ -6333,19 +6333,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Ivan\\.nuget\\packages\\": {}
+    "C:\\Users\\DELL\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Ivan\\Desktop\\BAZE_PROJEKAT\\npb_novo\\NAPREDNE_BAZE\\NBP_I\\NBP_I.csproj",
+      "projectUniqueName": "C:\\Users\\DELL\\Desktop\\BazeProjekat\\NAPREDNE_BAZE\\NBP_I\\NBP_I.csproj",
       "projectName": "NBP_I",
-      "projectPath": "C:\\Users\\Ivan\\Desktop\\BAZE_PROJEKAT\\npb_novo\\NAPREDNE_BAZE\\NBP_I\\NBP_I.csproj",
-      "packagesPath": "C:\\Users\\Ivan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Ivan\\Desktop\\BAZE_PROJEKAT\\npb_novo\\NAPREDNE_BAZE\\NBP_I\\obj\\",
+      "projectPath": "C:\\Users\\DELL\\Desktop\\BazeProjekat\\NAPREDNE_BAZE\\NBP_I\\NBP_I.csproj",
+      "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\DELL\\Desktop\\BazeProjekat\\NAPREDNE_BAZE\\NBP_I\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Ivan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -6410,7 +6410,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.415\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }
