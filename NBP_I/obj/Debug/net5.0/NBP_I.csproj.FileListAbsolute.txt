@@ -142,3 +142,17 @@ C:\Users\Ivan\Desktop\BAZE_PROJEKAT\npb_novo\NAPREDNE_BAZE\NBP_I\obj\Debug\net5.
 C:\Users\Ivan\Desktop\BAZE_PROJEKAT\npb_novo\NAPREDNE_BAZE\NBP_I\obj\Debug\net5.0\ref\NBP_I.dll
 C:\Users\Ivan\Desktop\BAZE_PROJEKAT\npb_novo\NAPREDNE_BAZE\NBP_I\obj\Debug\net5.0\NBP_I.pdb
 C:\Users\Ivan\Desktop\BAZE_PROJEKAT\npb_novo\NAPREDNE_BAZE\NBP_I\obj\Debug\net5.0\NBP_I.genruntimeconfig.cache
+D:\Fakultet i ucenje\IV godina\Predmeti\Napredne baze podataka\[NBP] Projekat\NBP_I\obj\Debug\net5.0\NBP_I.RazorComponent.input.cache
+D:\Fakultet i ucenje\IV godina\Predmeti\Napredne baze podataka\[NBP] Projekat\NBP_I\obj\Debug\net5.0\RazorDeclaration\Views\Chat\Index.razor.g.cs
+D:\Fakultet i ucenje\IV godina\Predmeti\Napredne baze podataka\[NBP] Projekat\NBP_I\obj\Debug\net5.0\RazorDeclaration\Views\Shared\_Layout.razor.g.cs
+D:\Fakultet i ucenje\IV godina\Predmeti\Napredne baze podataka\[NBP] Projekat\NBP_I\obj\Debug\net5.0\RazorDeclaration\Views\ViewImports.razor.g.cs
+D:\Fakultet i ucenje\IV godina\Predmeti\Napredne baze podataka\[NBP] Projekat\NBP_I\obj\Debug\net5.0\RazorDeclaration\Views\ViewStart.razor.g.cs
+D:\Fakultet i ucenje\IV godina\Predmeti\Napredne baze podataka\[NBP] Projekat\NBP_I\obj\Debug\net5.0\NBP_I.RazorComponent.output.cache
+D:\Fakultet i ucenje\IV godina\Predmeti\Napredne baze podataka\[NBP] Projekat\NBP_I\obj\Debug\net5.0\RazorDeclaration\NBP_I.dll
+D:\Fakultet i ucenje\IV godina\Predmeti\Napredne baze podataka\[NBP] Projekat\NBP_I\obj\Debug\net5.0\NBP_I.TagHelpers.input.cache
+D:\Fakultet i ucenje\IV godina\Predmeti\Napredne baze podataka\[NBP] Projekat\NBP_I\obj\Debug\net5.0\NBP_I.TagHelpers.output.cache
+D:\Fakultet i ucenje\IV godina\Predmeti\Napredne baze podataka\[NBP] Projekat\NBP_I\obj\Debug\net5.0\NBP_I.RazorCoreGenerate.cache
+D:\Fakultet i ucenje\IV godina\Predmeti\Napredne baze podataka\[NBP] Projekat\NBP_I\obj\Debug\net5.0\Razor\Views\Chat\Index.razor.g.cs
+D:\Fakultet i ucenje\IV godina\Predmeti\Napredne baze podataka\[NBP] Projekat\NBP_I\obj\Debug\net5.0\Razor\Views\Shared\_Layout.razor.g.cs
+D:\Fakultet i ucenje\IV godina\Predmeti\Napredne baze podataka\[NBP] Projekat\NBP_I\obj\Debug\net5.0\Razor\Views\ViewImports.razor.g.cs
+D:\Fakultet i ucenje\IV godina\Predmeti\Napredne baze podataka\[NBP] Projekat\NBP_I\obj\Debug\net5.0\Razor\Views\ViewStart.razor.g.cs

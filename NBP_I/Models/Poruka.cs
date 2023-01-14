@@ -7,6 +7,12 @@ namespace NBP_I.Models
 {
     public class Poruka
     {
+        public Poruka(int od, string sadrzaj)
+        {
+            this.Od = od;
+            this.Sadrzaj = sadrzaj;
+        }
+
         public int Od { get; set; }
         //public int Za { get; set; }
         public string Sadrzaj { get; set; }//za ovo da vidimo moze da bude i Image i svasta nesto

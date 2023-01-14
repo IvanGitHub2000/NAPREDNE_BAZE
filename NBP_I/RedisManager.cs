@@ -25,6 +25,12 @@ namespace NBP_I
         private static T Deserialize(RedisValue data) => JsonConvert.DeserializeObject<T>(data);
         private static string Serialize(T data) => JsonConvert.SerializeObject(data);
 
+        public static void SetString(string path, T data)
+            => RedisManager.Database.StringSet(path, Serialize(data));
+
+        public static T GetString(string path)
+            => Deserialize(RedisManager.Database.StringGet(path));
+
         public static void Push(string path, T data)
             => RedisManager.Database.ListRightPush(path, Serialize(data));
 
