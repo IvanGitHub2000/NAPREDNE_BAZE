@@ -13,21 +13,21 @@ namespace NBP_I.Views
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Components;
 #nullable restore
-#line 2 "D:\Fakultet i ucenje\IV godina\Predmeti\Napredne baze podataka\[NBP] Projekat\NBP_I\Views\ViewImports.razor"
+#line 2 "C:\Users\DELL\Desktop\P2\NAPREDNE_BAZE\NBP_I\Views\ViewImports.razor"
 using NBP_I;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "D:\Fakultet i ucenje\IV godina\Predmeti\Napredne baze podataka\[NBP] Projekat\NBP_I\Views\ViewImports.razor"
+#line 3 "C:\Users\DELL\Desktop\P2\NAPREDNE_BAZE\NBP_I\Views\ViewImports.razor"
 using NBP_I.Models;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "D:\Fakultet i ucenje\IV godina\Predmeti\Napredne baze podataka\[NBP] Projekat\NBP_I\Views\ViewImports.razor"
+#line 4 "C:\Users\DELL\Desktop\P2\NAPREDNE_BAZE\NBP_I\Views\ViewImports.razor"
 using Microsoft.AspNetCore.Mvc.TagHelpers;
 
 #line default
